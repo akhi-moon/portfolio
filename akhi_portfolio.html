@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akhi Moon Jahan : Portfolio</title>
+
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#FFFBF4',      
+            ink: '#11120D',        
+            forest: '#565449',     
+            forestlight: '#3F6350',
+            clay: '#B97A4E',       
+            line: '#D8CFBC',       
+          fontFamily: {
+            serif: ['Lora', 'serif'],   
+            sans: ['Inter', 'sans-serif'], 
+          }
+        }
+      }
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-paper text-ink font-sans leading-relaxed">
+
+  <header class="sticky top-0 z-10 bg-paper/90 backdrop-blur border-b border-line">
+    <nav class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#top" class="font-serif text-lg font-semibold">Akhi Moon Jahan</a>
+      <div class="hidden sm:flex gap-6 text-sm">
+        <a href="#about" class="hover:text-forest transition-colors">About Me</a>
+        <a href="#achievements" class="hover:text-forest transition-colors">Achievements</a>
+        <a href="#projects" class="hover:text-forest transition-colors">Projects</a>
+        <a href="#contact" class="hover:text-forest transition-colors">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section id="top" class="max-w-5xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- LEFT: intro -->
+    <div>
+      <h1 class="font-serif text-4xl md:text-5xl font-semibold leading-tight">
+        Hi, I'm Akhi Moon Jahan.
+      </h1>
+      <p class="mt-5 text-lg text-ink/80 max-w-md">
+        I build web projects to understand them properly and I care just as much
+        about explaining them clearly to someone else. Right now I'm finishing my
+        BSc degree in Computer Science & Engineering and leaning toward teaching.
+      </p>
+
+      <div class="mt-8 flex gap-4">
+        <a href="#projects"
+           class="px-5 py-3 bg-forest text-paper rounded-md hover:bg-forestlight transition-colors">
+          See my work
+        </a>
+        <a href="#contact"
+           class="px-5 py-3 border border-line rounded-md hover:border-forest transition-colors">
+          Get in touch
+        </a>
+      </div>
+    </div>
+
+    <div class="justify-self-center">
+      <div class="w-64 h-80 md:w-72 md:h-96 rounded-md bg-line flex items-center justify-center
+                  border border-line text-ink/40 font-serif text-sm">
+      <img src="D:\Studies\8th Semester\Field Work\Portfolio\images\1000245673.jpg" alt="photo">
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="max-w-3xl mx-auto px-6 py-16">
+    <h2 class="font-serif text-2xl font-semibold mb-5">About Me</h2>
+    <p class="text-justify ink/80">
+      I am an upcoming graduate of Computer Science & Engineering, and I have a keen interest in 
+      studying intelligent system solutions for real-world applications. The challenge of information 
+      security intrigues me because of its ability to protect data silently and uncover threats 
+      that lie openly before us. This intruiguing aspect has led me to publish two research papers in QPAIN 2026. Currently, I am finishing 
+      up my undergraduate thesis titled "HealGNN: Predictive Disease Risk Modeling from Environmental 
+      Factors Using Spatiotemporal Graph Neural Networks and Counterfactual Goal Directed Policy Interventions".
+      This research is inspired by my interest in the applications of graph neural networks in public health 
+      and policy simulations. In completing my graduation degree, I will be looking forward to continue learning more.
+    </p>
+  </section>
+
+
+  <section id="achievements" class="max-w-3xl mx-auto px-6 py-16">
+    <h2 class="font-serif text-2xl font-semibold mb-6">Achievements</h2>
+
+    <div class="mb-10">
+      <h3 class="font-serif text-lg font-semibold mb-4">Publications</h3>
+
+      <div class="space-y-4">
+        <!-- Published paper 1 -->
+        <div class="border border-line rounded-md p-4 flex justify-between items-start gap-4">
+          <div>
+            <p class="font-medium">Enhancing LSB Image Steganography Through Password Protection 
+              and Constraint Satisfaction-Based Message Filtering</p>
+            <p class="text-sm text-ink/70 mt-1">Conference Name : 2026 IEEE 2nd International Conference on Quantum Photonics, 
+              Artificial Intelligence & Networking (QPAIN).</p>
+            <p class="text-sm text-ink/70 mt-1">Link :
+              <a href=" https://ieeexplore.ieee.org/document/11546392" class="text-forest hover:underline">Read The Paper Here</a></p>
+          </div>
+            <span class="text-xs px-2 py-1 rounded-full bg-green-100 text-black-1000">Published</span>
+        </div>
+
+        <!-- Published paper 2 -->
+        <div class="border border-line rounded-md p-4 flex justify-between items-start gap-4">
+          <div>
+            <p class="font-medium">Multi-Model Insider Threat Detection on Temporally Aggregated 
+              and Imbalanced Data: A Comparative Study Using SMOTE and Feature Ablation</p>
+            <p class="text-sm text-ink/70 mt-1">Conference Name : 2026 IEEE 2nd International Conference on Quantum Photonics, 
+              Artificial Intelligence & Networking (QPAIN).</p>
+            <p class="text-sm text-ink/70 mt-1">Link :
+              <a href="https://ieeexplore.ieee.org/document/11546056" class="text-forest hover:underline">Read The Paper Here</a></p>
+          </div>
+          <span class="text-xs px-2 py-1 rounded-full bg-green-100 text-black-1000">Published</span>
+        </div>
+
+        <!-- 
+          In-progress paper 
+        <div class="border border-line rounded-md p-4 flex justify-between items-start gap-4">
+          <div>
+            <p class="font-medium">Your In-Progress Paper</p>
+            <p class="text-sm text-ink/70 mt-1">Working title — short note on the topic.</p>
+          </div>
+          <span class="shrink-0 text-xs px-2 py-1 rounded bg-clay/10 text-clay">In Progress</span>
+        </div>
+      -->
+
+        <!-- NOTE: leave out the paper you're still unsure about until its status
+             is confirmed — safer than listing something that might not land. -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. PROJECTS
+       Card grid. Each card: image, name, short description,
+       GitHub link, and a live demo / "see project" link.
+  ============================================================ -->
+  <section id="projects" class="max-w-5xl mx-auto px-6 py-16">
+    <h2 class="font-serif text-2xl font-semibold mb-8">Projects</h2>
+
+    <div class="grid sm:grid-cols-2 gap-8">
+
+      <!-- Project card 1 -->
+      <div class="border border-line rounded-md overflow-hidden flex flex-col">
+        <div class="h-50 bg-line flex items-center justify-center text-ink/40 text-sm">
+          <img src="D:\Studies\8th Semester\Field Work\Portfolio\images\hide&seek.png" class="h-full w-full h-50 object-cover" /> 
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <h3 class="font-serif text-lg font-semibold">Hide & Seek: An Image-Based Steganography Website</h3>
+          <p class="text-sm text-ink/70 mt-2 flex-1">
+            A technique for concealing secret information within an image by imperceptibly 
+            modifying its visual content or manipulating its frequency domain representation.
+          </p>
+          <div class="mt-4 flex gap-4 text-sm">
+            <a href="https://github.com/akhi-moon/Hide-Seek/tree/main/Hide%26Seek_SectionA" class="text-forest hover:underline">GitHub</a>
+            <a href="https://hideandseek625.pythonanywhere.com/" class="text-forest hover:underline">See project</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project card 2 -->
+      <div class="border border-line rounded-md overflow-hidden flex flex-col">
+        <div class="h-50 bg-line flex items-center justify-center text-ink/40 text-sm">
+          <img src="D:\Studies\8th Semester\Field Work\Portfolio\images\nutri-academia.png" class="h-full w-full h-50 object-cover" />
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <h3 class="font-serif text-lg font-semibold">Nutri-Track Academia: A Students' Daily Meal Management System</h3>
+          <p class="text-sm text-ink/70 mt-2 flex-1">
+            A meal booking and billing system that manages student meal accounts for purchases of meals at food outlets on campuses. 
+            It's a planned series of events which is mainly concerned with menu-planning, food purchasing, managing the bills.
+          </p>
+          <div class="mt-4 flex gap-4 text-sm">
+            <a href="https://github.com/akhi-moon/Nutri_Track_Academia" class="text-forest hover:underline">GitHub</a>
+            <a href="#" class="text-forest hover:underline">See project</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. CONTACT
+       ONE outer card titled "Get in touch" containing TWO equal-length
+       inner columns: left = your info, right = a message form.
+       "items-stretch" on the grid is what forces both columns to match height.
+  ============================================================ -->
+  <section id="contact" class="max-w-4xl mx-auto px-6 py-10">
+    <div class="border border-line rounded-md overflow-hidden">
+      <h2 class="font-serif text-2xl font-semibold px-6 pt-6">Get in touch</h2>
+      <p class="px-8 text-ink/70 mt-2">
+        Yeah Whatever.
+      </p>
+
+      <div class="grid md:grid-cols-2 items-stretch mt-6">
+
+        <!-- LEFT: your info -->
+        <div class="p-8 border-t md:border-t-0 md:border-r border-line">
+          <h3 class="font-medium mb-4">Contact info</h3>
+          <ul class="space-y-3 text-sm text-ink/80">
+            <li><span class="text-ink/50">Email — </span>akhimoon6445@gmail.com</li>
+            <li><span class="text-ink/50">Phone — </span>+8801636101228</li>
+            <li><span class="text-ink/50">GitHub — </span><a href="https://github.com/akhi-moon" class="text-forest hover:underline">akhi-moon</a></li>
+            <li><span class="text-ink/50">LinkedIn — </span><a href="https://linkedin.com/in/akhi-moon-jahan" class="text-forest hover:underline">akhi-moon-jahan</a></li>
+            <li><span class="text-ink/50">ResearchGate — </span><a href=" https://www.researchgate.net/profile/Akhi-Jahan" class="text-forest hover:underline">Akhi-Jahan</a></li>
+          </ul>
+        </div>
+
+        <!-- RIGHT: contact form.
+             No JavaScript yet, so this form doesn't actually send anything —
+             that comes once your class covers JS / a backend. -->
+        <div class="p-8 border-t border-line">
+          <h3 class="font-medium mb-4">Send a message</h3>
+          <form class="space-y-4">
+            <div>
+              <label for="name" class="block text-sm text-ink/60 mb-1">Name</label>
+              <input id="name" type="text"
+                     class="w-full border border-line rounded-md px-3 py-2 bg-paper
+                            focus:outline-none focus:ring-2 focus:ring-forest" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm text-ink/60 mb-1">Email</label>
+              <input id="email" type="email"
+                     class="w-full border border-line rounded-md px-3 py-2 bg-paper
+                            focus:outline-none focus:ring-2 focus:ring-forest" />
+            </div>
+            <div>
+              <label for="message" class="block text-sm text-ink/60 mb-1">Message</label>
+              <textarea id="message" rows="3"
+                        class="w-full border border-line rounded-md px-3 py-2 bg-paper
+                               focus:outline-none focus:ring-2 focus:ring-forest"></textarea>
+            </div>
+            <button type="submit"
+                    class="px-5 py-2.5 bg-forest text-paper rounded-md hover:bg-forestlight transition-colors">
+              Send message
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="max-w-5xl mx-auto px-6 py-10 text-sm text-ink/50 text-center">
+    © 2026 Akhi Moon Jahan. Built with HTML & Tailwind CSS.
+  </footer>
+
+</body>
+</html>
