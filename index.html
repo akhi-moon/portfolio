@@ -9,6 +9,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <script>
@@ -55,9 +56,7 @@
         Hi, I'm Akhi Moon Jahan.
       </h1>
       <p class="mt-5 text-lg text-ink/80 max-w-md">
-        I build web projects to understand them properly and I care just as much
-        about explaining them clearly to someone else. Right now I'm finishing my
-        BSc degree in Computer Science & Engineering and leaning toward teaching.
+        I am a final-year CSE student with an increasing interest in Information Security and Machine Learning.
       </p>
 
       <div class="mt-8 flex gap-4">
@@ -74,8 +73,8 @@
 
     <div class="justify-self-center">
       <div class="w-64 h-80 md:w-72 md:h-96 rounded-md bg-line flex items-center justify-center
-                  border border-line text-ink/40 font-serif text-sm">
-      <img src="images/1000245674.jpg" alt="photo">
+                  border border-line text-ink/40 font-serif text-sm hover:scale-105">
+      <img src="images\1000245674.jpg" alt="photo">
       </div>
     </div>
   </section>
@@ -110,7 +109,11 @@
             <p class="text-sm text-ink/70 mt-1">Conference Name : 2026 IEEE 2nd International Conference on Quantum Photonics, 
               Artificial Intelligence & Networking (QPAIN).</p>
             <p class="text-sm text-ink/70 mt-1">Link :
-              <a href=" https://ieeexplore.ieee.org/document/11546392" class="text-forest hover:underline">Read The Paper Here</a></p>
+              <a href=" https://ieeexplore.ieee.org/document/11546392" class="text-forest
+              relative hover:text-forest transition-colors after:content-[''] after:absolute 
+              after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-forest 
+              after:transition-all hover:after:w-full">
+              <i class="fa-brands fa-google-scholar"></i> Read The Paper Here</a></p>
           </div>
             <span class="text-xs px-2 py-1 rounded-full bg-green-100 text-black-1000">Published</span>
         </div>
@@ -123,7 +126,11 @@
             <p class="text-sm text-ink/70 mt-1">Conference Name : 2026 IEEE 2nd International Conference on Quantum Photonics, 
               Artificial Intelligence & Networking (QPAIN).</p>
             <p class="text-sm text-ink/70 mt-1">Link :
-              <a href="https://ieeexplore.ieee.org/document/11546056" class="text-forest hover:underline">Read The Paper Here</a></p>
+              <a href="https://ieeexplore.ieee.org/document/11546056" class="text-forest
+              relative hover:text-forest transition-colors after:content-[''] after:absolute 
+              after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-forest 
+              after:transition-all hover:after:w-full">
+              <i class="fa-brands fa-google-scholar"></i> Read The Paper Here</a></p>
           </div>
           <span class="text-xs px-2 py-1 rounded-full bg-green-100 text-black-1000">Published</span>
         </div>
@@ -158,7 +165,9 @@
       <!-- Project card 1 -->
       <div class="border border-line rounded-md overflow-hidden flex flex-col">
         <div class="h-50 bg-line flex items-center justify-center text-ink/40 text-sm">
-          <img src="images/hide_seek.png" class="h-full w-full h-50 object-cover" /> 
+          <a href="images/hide_seek.png" target="_blank">
+          <img src="images/hide_seek.png" alt="Project One screenshot" class="w-full h-full object-cover">
+          </a>
         </div>
         <div class="p-5 flex flex-col flex-1">
           <h3 class="font-serif text-lg font-semibold">Hide & Seek: An Image-Based Steganography Website</h3>
@@ -167,8 +176,15 @@
             modifying its visual content or manipulating its frequency domain representation.
           </p>
           <div class="mt-4 flex gap-4 text-sm">
-            <a href="https://github.com/akhi-moon/Hide-Seek/tree/main/Hide%26Seek_SectionA" class="text-forest hover:underline">GitHub</a>
-            <a href="https://hideandseek625.pythonanywhere.com/" class="text-forest hover:underline">See project</a>
+            <a href="https://github.com/akhi-moon/Hide-Seek/tree/main/Hide%26Seek_SectionA" class="text-forest
+              relative hover:text-forest transition-colors after:content-[''] after:absolute 
+              after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-forest 
+              after:transition-all hover:after:w-full">
+            <i class="fa-brands fa-square-github"></i> GitHub</a>
+            <a href="https://hideandseek625.pythonanywhere.com/" class="text-forest
+              relative hover:text-forest transition-colors after:content-[''] after:absolute 
+              after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-forest 
+              after:transition-all hover:after:w-full">See project <i class="fa-solid fa-link"></i></a>
           </div>
         </div>
       </div>
@@ -176,7 +192,9 @@
       <!-- Project card 2 -->
       <div class="border border-line rounded-md overflow-hidden flex flex-col">
         <div class="h-50 bg-line flex items-center justify-center text-ink/40 text-sm">
-          <img src="images/nutri-academia.png" class="h-full w-full h-50 object-cover" />
+          <a href="images/nutri-academia.png" target="_blank">
+          <img src="images/nutri-academia.png" alt="Project One screenshot" class="w-full h-full object-cover">
+          </a>        
         </div>
         <div class="p-5 flex flex-col flex-1">
           <h3 class="font-serif text-lg font-semibold">Nutri-Track Academia: A Students' Daily Meal Management System</h3>
@@ -185,8 +203,15 @@
             It's a planned series of events which is mainly concerned with menu-planning, food purchasing, managing the bills.
           </p>
           <div class="mt-4 flex gap-4 text-sm">
-            <a href="https://github.com/akhi-moon/Nutri_Track_Academia" class="text-forest hover:underline">GitHub</a>
-            <a href="#" class="text-forest hover:underline">See project</a>
+            <a href="https://github.com/akhi-moon/Nutri_Track_Academia" class="text-forest
+              relative hover:text-forest transition-colors after:content-[''] after:absolute 
+              after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-forest 
+              after:transition-all hover:after:w-full">
+            <i class="fa-brands fa-square-github"></i> GitHub</a>
+            <a href="http://nutritrackacademia.infinityfreeapp.com/" class="text-forest
+              relative hover:text-forest transition-colors after:content-[''] after:absolute 
+              after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-forest 
+              after:transition-all hover:after:w-full">See project <i class="fa-solid fa-link"></i></a>
           </div>
         </div>
       </div>
@@ -213,11 +238,11 @@
         <div class="p-8 border-t md:border-t-0 md:border-r border-line">
           <h3 class="font-medium mb-4">Contact info</h3>
           <ul class="space-y-3 text-sm text-ink/80">
-            <li><span class="text-ink/50">Email — </span>akhimoon6445@gmail.com</li>
-            <li><span class="text-ink/50">Phone — </span>+8801636101228</li>
-            <li><span class="text-ink/50">GitHub — </span><a href="https://github.com/akhi-moon" class="text-forest hover:underline">akhi-moon</a></li>
-            <li><span class="text-ink/50">LinkedIn — </span><a href="https://www.linkedin.com/in/akhi-moon-jahan-a9897b339/" class="text-forest hover:underline">akhi-moon-jahan</a></li>
-            <li><span class="text-ink/50">ResearchGate — </span><a href=" https://www.researchgate.net/profile/Akhi-Jahan" class="text-forest hover:underline">Akhi-Jahan</a></li>
+            <li><span class="text-ink/50"><i class="fa-solid fa-at"></i> Email — </span>akhimoon6445@gmail.com</li>
+            <li><span class="text-ink/50"><i class="fa-solid fa-phone"></i> Phone — </span>+8801636101228</li>
+            <li><span class="text-ink/50"><i class="fa-brands fa-square-github"></i> GitHub — </span><a href="https://github.com/akhi-moon" class="text-forest hover:underline">akhi-moon</a></li>
+            <li><span class="text-ink/50"><i class="fa-brands fa-linkedin"></i> LinkedIn — </span><a href="https://linkedin.com/in/akhi-moon-jahan" class="text-forest hover:underline">akhi-moon-jahan</a></li>
+            <li><span class="text-ink/50"><i class="fa-brands fa-researchgate"></i> ResearchGate — </span><a href=" https://www.researchgate.net/profile/Akhi-Jahan" class="text-forest hover:underline">Akhi-Jahan</a></li>
           </ul>
         </div>
 
