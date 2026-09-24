@@ -1,292 +1,637 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Akhi Moon Jahan : Portfolio</title>
-
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Akhi Moon Jahan : Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>emailjs.init("Y9Qj3S4N33ehNRVxF");</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            paper: '#FFFBF4',      
-            ink: '#11120D',        
-            forest: '#565449',     
-            forestlight: '#3F6350',
-            clay: '#B97A4E',       
-            line: '#D8CFBC',       
-          fontFamily: {
-            serif: ['Lora', 'serif'],   
-            sans: ['Inter', 'sans-serif'], 
-          }
-        }
-      }
-    }
+<style>
+  :root{
+    --oat:#F2EDE2; --blush:#E7B9B2; --terracotta:#C47A5C;
+    --sage:#A7B59C; --misty:#B7C6D6; --olive:#6E775C;
+    --ink:#2E2C24; --bg:var(--oat); --text:var(--ink); --card:#ffffffb3;
+    padding-top: env(safe-area-inset-top,0px); padding-bottom: env(safe-area-inset-bottom,0px);
   }
-  </script>
+  html{ scroll-behavior:smooth; scroll-padding-top:88px; color-scheme:light; }
+  body{ background:var(--bg); color:var(--text); font-family:'Manrope',ui-sans-serif,system-ui,sans-serif; overflow-x:hidden; }
+  .font-display{ font-family:'Fraunces',ui-serif,Georgia,serif; }
+  .blob{ border-radius:44% 56% 62% 38% / 46% 40% 60% 54%; }
+  .blob2{ border-radius:60% 40% 34% 66% / 55% 62% 38% 45%; }
+  .card{ background:var(--card); backdrop-filter:blur(2px); }
+  .chip{ transition:transform .2s ease; }
+  .chip:hover{ transform:translateY(-3px) rotate(-1deg); }
+  .lift{ transition:transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s; }
+  .lift:hover{ transform:translateY(-6px) rotate(-.6deg); }
+  .squiggle{ display:block; width:100%; height:14px; margin-top:-6px; }
+  .hero-in > *{ opacity:0; transform:translateY(18px); animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
+  .hero-in > *:nth-child(1){animation-delay:.05s} .hero-in > *:nth-child(2){animation-delay:.18s}
+  .hero-in > *:nth-child(3){animation-delay:.32s} .hero-in > *:nth-child(4){animation-delay:.46s}
+  .hero-in > *:nth-child(5){animation-delay:.6s}
+  @keyframes rise{ to{ opacity:1; transform:none; } }
+  .photo-in{ opacity:0; transform:scale(.9) rotate(3deg); animation:pop .8s .3s cubic-bezier(.2,.7,.2,1) forwards; }
+  @keyframes pop{ to{ opacity:1; transform:none; } }
+  @media (prefers-reduced-motion: reduce){ .hero-in > *, .photo-in{ animation:none!important; opacity:1!important; transform:none!important; } }
+  .dot{ position:absolute; border-radius:9999px; }
+  .skillFill{ transition: width 1s cubic-bezier(.2,.7,.2,1); }
+  #projTrack::-webkit-scrollbar{ display:none; }
+  ::selection{ background:var(--terracotta); color:#fff; }
+  a:focus-visible, button:focus-visible{ outline:3px solid var(--terracotta); outline-offset:3px; border-radius:6px; }
+</style>
 </head>
+<body class="antialiased">
 
-<body class="bg-paper text-ink font-sans leading-relaxed">
-
-  <header class="sticky top-0 z-10 bg-paper/90 backdrop-blur border-b border-line">
-    <nav class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#top" class="font-serif text-lg font-semibold">Akhi Moon Jahan</a>
-      <div class="hidden sm:flex gap-6 text-sm">
-        <a href="#about" class="hover:text-forest transition-colors">About Me</a>
-        <a href="#achievements" class="hover:text-forest transition-colors">Achievements</a>
-        <a href="#projects" class="hover:text-forest transition-colors">Projects</a>
-        <a href="#contact" class="hover:text-forest transition-colors">Contact</a>
-      </div>
-    </nav>
-  </header>
-
-  <section id="top" class="max-w-5xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
-
-    <!-- LEFT: intro -->
-    <div>
-      <h1 class="font-serif text-4xl md:text-5xl font-semibold leading-tight">
-        Hi, I'm Akhi Moon Jahan.
-      </h1>
-      <p class="mt-5 text-lg text-ink/80 max-w-md">
-        I am a final-year CSE student with an increasing interest in Information Security and Machine Learning.
-      </p>
-
-      <div class="mt-8 flex gap-4">
-        <a href="#projects"
-           class="px-5 py-3 bg-forest text-paper rounded-md hover:bg-forestlight transition-colors">
-          See my work
-        </a>
-        <a href="#contact"
-           class="px-5 py-3 border border-line rounded-md hover:border-forest transition-colors">
-          Get in touch
-        </a>
-      </div>
+<!-- NAV -->
+<header class="fixed top-0 inset-x-0 z-50" style="padding-top:env(safe-area-inset-top,0px)">
+  <nav class="max-w-6xl mx-auto mt-4 px-5 py-3 flex items-center justify-between rounded-full card border border-black/5 shadow-sm">
+    <a href="#top" class="flex items-center gap-2 font-display font-semibold text-lg">
+      <span class="w-12 h-9 grid place-items-center rounded-full text-white" style="background:var(--terracotta)">AMJ</span>
+      Akhi Moon
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-semibold">
+      <a href="#about" class="hover:text-[var(--terracotta)]">About</a>
+      <a href="#achievements" class="hover:text-[var(--terracotta)]">Achievements</a>
+      <a href="#projects" class="hover:text-[var(--terracotta)]">Projects</a>
+      <a href="#contact" class="px-4 py-2 rounded-full text-white" style="background:var(--olive)">Get in Touch</a>
     </div>
+    <button id="menuBtn" class="md:hidden w-9 h-9 grid place-items-center" aria-label="Menu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </nav>
+  <div id="menu" class="hidden md:hidden max-w-6xl mx-auto mt-2 px-5 py-4 rounded-3xl card border border-black/5 flex flex-col gap-3 text-sm font-semibold">
+    <a href="#about">About</a><a href="#achievements">Achievements</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+  </div>
+</header>
 
-    <div class="justify-self-center">
-      <div class="w-64 h-80 md:w-72 md:h-96 rounded-md bg-line flex items-center justify-center
-                  border border-line text-ink/40 font-serif text-sm hover:scale-105">
-      <img src="images\1000245674.jpg" alt="photo">
-      </div>
+<!-- HERO -->
+<section id="top" class="relative pt-40 pb-24 px-5 max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+  <div class="dot -z-10" style="width:120px;height:120px;background:var(--misty);top:60px;right:8%;opacity:.5;filter:blur(1px)"></div>
+  <div class="dot -z-10" style="width:14px;height:14px;background:var(--terracotta);top:310px;left:3%"></div>
+
+  <div class="hero-in">
+    <p class="text-lg" style="color:var(--olive)">Assalamualaikum, This is</p>
+    <h1 class="font-display font-semibold leading-[0.95] text-6xl sm:text-7xl mt-1">Akhi Moon<br>Jahan</h1>
+    <svg class="squiggle" viewBox="0 0 260 14" style="max-width:280px"><path d="M2 10 Q 20 2, 38 10 T 74 10 T 110 10 T 146 10 T 182 10 T 218 10 T 254 10" fill="none" stroke="var(--terracotta)" stroke-width="4" stroke-linecap="round"/></svg>
+    <p class="mt-5 text-lg max-w-md" style="color:var(--text);opacity:.85">I am a final-year CSE student with an increasing interest in Information Security and Machine Learning.</p>
+  </div>
+
+  <div class="relative photo-in">
+    <div class="blob w-full aspect-[4/5] max-w-sm mx-auto overflow-hidden relative" style="background:linear-gradient(160deg,var(--blush),var(--terracotta))">
+      <img src="images\1000245673.jpg" alt="portrait" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
     </div>
-  </section>
+    <div class="dot -z-10" style="width:70px;height:70px;background:var(--sage);bottom:-30px;left:-20px;opacity:.7"></div>
+  </div>
+</section>
 
-  <section id="about" class="max-w-3xl mx-auto px-6 py-16">
-    <h2 class="font-serif text-2xl font-semibold mb-5">About Me</h2>
-    <p class="text-justify ink/80">
-      I am an upcoming graduate of Computer Science & Engineering, and I have a keen interest in 
+<!-- ABOUT -->
+<section id="about" class="px-5 py-24 max-w-6xl mx-auto grid md:grid-cols-5 gap-12 items-start">
+  <div class="md:col-span-2">
+    <h2 class="font-display text-4xl font-semibold">About</h2>
+    <p class="text-justify mt-5 leading-relaxed" style="opacity:.85"> am an upcoming graduate of Computer Science & Engineering, and I have a keen interest in 
       studying intelligent system solutions for real-world applications. The challenge of information 
       security intrigues me because of its ability to protect data silently and uncover threats 
-      that lie openly before us. This intruiguing aspect has led me to publish two research papers in QPAIN 2026. Currently, I am finishing 
-      up my undergraduate thesis titled "HealGNN: Predictive Disease Risk Modeling from Environmental 
-      Factors Using Spatiotemporal Graph Neural Networks and Counterfactual Goal Directed Policy Interventions".
-      This research is inspired by my interest in the applications of graph neural networks in public health 
-      and policy simulations. In completing my graduation degree, I will be looking forward to continue learning more.
-    </p>
-  </section>
+      that lie openly before us. This intruiguing aspect has led me to publish two research bgcolors in QPAIN 2026. </p>
+    <p class="text-justify mt-4 leading-relaxed" style="opacity:.85">Currently, I am finishing up my undergraduate thesis titled 
+      "HealGNN: Predictive Disease Risk Modeling from Environmental Factors Using Spatiotemporal Graph Neural Networks 
+      and Counterfactual Goal Directed Policy Interventions". This research is inspired by my interest in the applications
+      of graph neural networks in public health and policy simulations. In completing my graduation degree, 
+      I will be looking forward to continue learning more.</p>
+  </div>
 
+  <div class="md:col-span-3">
+    <div class="flex gap-8 border-b" style="border-color:#00000014">
+      <button data-tab="skills" class="aboutTab pb-3 font-semibold relative" style="color:var(--terracotta)">
+        Skills
+        <span class="tabUnderline absolute left-0 -bottom-px w-full h-0.5" style="background:var(--terracotta)"></span>
+      </button>
+      <button data-tab="education" class="aboutTab pb-3 font-semibold relative" style="opacity:.55">
+        Education
+        <span class="tabUnderline absolute left-0 -bottom-px w-full h-0.5 opacity-0" style="background:var(--terracotta)"></span>
+      </button>
+    </div>
 
-  <section id="achievements" class="max-w-3xl mx-auto px-6 py-16">
-    <h2 class="font-serif text-2xl font-semibold mb-6">Achievements</h2>
-
-    <div class="mb-10">
-      <h3 class="font-serif text-lg font-semibold mb-4">Publications</h3>
-
-      <div class="space-y-4">
-        <!-- Published paper 1 -->
-        <div class="border border-line rounded-md p-4 flex justify-between items-start gap-4">
-          <div>
-            <p class="font-medium">Enhancing LSB Image Steganography Through Password Protection 
-              and Constraint Satisfaction-Based Message Filtering</p>
-            <p class="text-sm text-ink/70 mt-1">Conference Name : 2026 IEEE 2nd International Conference on Quantum Photonics, 
-              Artificial Intelligence & Networking (QPAIN).</p>
-            <p class="text-sm text-ink/70 mt-1">Link :
-              <a href=" https://ieeexplore.ieee.org/document/11546392" class="text-forest
-              relative hover:text-forest transition-colors after:content-[''] after:absolute 
-              after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-forest 
-              after:transition-all hover:after:w-full">
-              <i class="fa-brands fa-google-scholar"></i> Read The Paper Here</a></p>
-          </div>
-            <span class="text-xs px-2 py-1 rounded-full bg-green-100 text-black-1000">Published</span>
+    <!-- SKILLS PANEL -->
+    <div id="panel-skills" class="aboutPanel mt-8 space-y-5">
+      <div>
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="font-semibold text-sm">C &amp; C++</span>
+          <span class="font-semibold text-sm" style="color:var(--olive)">85%</span>
         </div>
-
-        <!-- Published paper 2 -->
-        <div class="border border-line rounded-md p-4 flex justify-between items-start gap-4">
-          <div>
-            <p class="font-medium">Multi-Model Insider Threat Detection on Temporally Aggregated 
-              and Imbalanced Data: A Comparative Study Using SMOTE and Feature Ablation</p>
-            <p class="text-sm text-ink/70 mt-1">Conference Name : 2026 IEEE 2nd International Conference on Quantum Photonics, 
-              Artificial Intelligence & Networking (QPAIN).</p>
-            <p class="text-sm text-ink/70 mt-1">Link :
-              <a href="https://ieeexplore.ieee.org/document/11546056" class="text-forest
-              relative hover:text-forest transition-colors after:content-[''] after:absolute 
-              after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-forest 
-              after:transition-all hover:after:w-full">
-              <i class="fa-brands fa-google-scholar"></i> Read The Paper Here</a></p>
-          </div>
-          <span class="text-xs px-2 py-1 rounded-full bg-green-100 text-black-1000">Published</span>
+        <div class="w-full h-2.5 rounded-full" style="background:#00000014">
+          <div class="skillFill h-2.5 rounded-full" data-width="68" style="width:0%;background:var(--olive)"></div>
         </div>
+      </div>
 
-        <!-- 
-          In-progress paper 
-        <div class="border border-line rounded-md p-4 flex justify-between items-start gap-4">
-          <div>
-            <p class="font-medium">Your In-Progress Paper</p>
-            <p class="text-sm text-ink/70 mt-1">Working title — short note on the topic.</p>
-          </div>
-          <span class="shrink-0 text-xs px-2 py-1 rounded bg-clay/10 text-clay">In Progress</span>
+      <div>
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="font-semibold text-sm">Data Analysis &amp; Research</span>
+          <span class="font-semibold text-sm" style="color:var(--terracotta)">75%</span>
         </div>
-      -->
+        <div class="w-full h-2.5 rounded-full" style="background:#00000014">
+          <div class="skillFill h-2.5 rounded-full" data-width="72" style="width:0%;background:var(--terracotta)"></div>
+        </div>
+      </div>
 
-        <!-- NOTE: leave out the paper you're still unsure about until its status
-             is confirmed — safer than listing something that might not land. -->
+      <div>
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="font-semibold text-sm">HTML &amp; CSS</span>
+          <span class="font-semibold text-sm" style="color:var(--sage)">72%</span>
+        </div>
+        <div class="w-full h-2.5 rounded-full" style="background:#00000014">
+          <div class="skillFill h-2.5 rounded-full" data-width="68" style="width:0%;background:var(--sage)"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="font-semibold text-sm">Python</span>
+          <span class="font-semibold text-sm" style="color:var(--sage)">65%</span>
+        </div>
+        <div class="w-full h-2.5 rounded-full" style="background:#00000014">
+          <div class="skillFill h-2.5 rounded-full" data-width="48" style="width:0%;background:var(--sage)"></div>
+        </div>
+      </div>
+
+      <div class="pt-3">
+        <h3 class="font-display font-semibold text-lg mb-3">Currently learning</h3>
+        <div class="flex flex-wrap gap-2 text-sm font-semibold">
+          <span class="chip px-3 py-1.5 rounded-full" style="background:var(--terracotta);color:#fff">Tailwind CSS</span>
+          <span class="chip px-3 py-1.5 rounded-full" style="background:var(--olive);color:#fff">Advanced JavaScript</span>
+          <span class="chip px-3 py-1.5 rounded-full" style="background:var(--olive);color:#fff">Node.js</span>
+          <span class="chip px-3 py-1.5 rounded-full" style="background:var(--olive);color:#fff">React.js</span>
+          <span class="chip px-3 py-1.5 rounded-full" style="background:var(--olive);color:#fff">Express.js</span>
+          <span class="chip px-3 py-1.5 rounded-full" style="background:var(--sage)">MongoDB</span>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- ============================================================
-       4. PROJECTS
-       Card grid. Each card: image, name, short description,
-       GitHub link, and a live demo / "see project" link.
-  ============================================================ -->
-  <section id="projects" class="max-w-5xl mx-auto px-6 py-16">
-    <h2 class="font-serif text-2xl font-semibold mb-8">Projects</h2>
+    <!-- EDUCATION PANEL -->
+    <div id="panel-education" class="aboutPanel mt-8 hidden">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
 
-    <div class="grid sm:grid-cols-2 gap-8">
+        <div class="card rounded-2xl border border-black/5 p-5">
+          <span class="w-3 h-3 rounded-full inline-block" style="background:var(--terracotta)"></span>
+          <h4 class="font-display font-semibold text-base mt-2 leading-snug">B.Sc. in Computer Science &amp; Engineering</h4>
+          <p class="text-xs mt-1" style="opacity:.7">International Islamic University Chittagong</p>
+          <p class="mt-3 text-xs font-semibold px-2.5 py-1 rounded-full inline-block" style="background:var(--terracotta);color:#fff">2022–2026</p>
+          <p class="mt-2 text-xs" style="opacity:.7">CGPA 3.795 / 4.00</p>
+        </div>
 
-      <!-- Project card 1 -->
-      <div class="border border-line rounded-md overflow-hidden flex flex-col">
-        <div class="h-50 bg-line flex items-center justify-center text-ink/40 text-sm">
-          <a href="images/hide_seek.png" target="_blank">
-          <img src="images/hide_seek.png" alt="Project One screenshot" class="w-full h-full object-cover">
+        <div class="card rounded-2xl border border-black/5 p-5">
+          <span class="w-3 h-3 rounded-full inline-block" style="background:var(--sage)"></span>
+          <h4 class="font-display font-semibold text-base mt-2 leading-snug">HSC</h4>
+          <p class="text-xs mt-1" style="opacity:.7">BAF Shaheen College Chattogram — Science</p>
+          <p class="mt-3 text-xs font-semibold px-2.5 py-1 rounded-full inline-block" style="background:var(--sage)">2020</p>
+          <p class="mt-2 text-xs" style="opacity:.7">GPA 5.00 / 5.00</p>
+        </div>
+
+        <div class="card rounded-2xl border border-black/5 p-5">
+          <span class="w-3 h-3 rounded-full inline-block" style="background:var(--misty)"></span>
+          <h4 class="font-display font-semibold text-base mt-2 leading-snug">SSC</h4>
+          <p class="text-xs mt-1" style="opacity:.7">St. Scholastica Girls' High School & College — Science</p>
+          <p class="mt-3 text-xs font-semibold px-2.5 py-1 rounded-full inline-block" style="background:var(--misty)">2018</p>
+          <p class="mt-2 text-xs" style="opacity:.7">GPA 4.89 / 5.00</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="achievements" class="px-5 py-24" style="background:var(--card)">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="font-display text-4xl font-semibold">Achievements</h2>
+
+    <div class="mt-10 flex items-center gap-3">
+      <h3 class="font-display text-xl font-semibold"><i class="fa-regular fa-file-lines"></i> Publications</h3>
+      <span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:var(--olive);color:#fff">2 Published</span>
+    </div>
+    <div class="mt-5 grid sm:grid-cols-2 gap-5">
+
+      <div class="lift relative overflow-hidden rounded-3xl p-6" style="background:var(--olive);color:#fff">
+        <svg class="absolute -right-5 -bottom-5 opacity-10" width="130" height="130" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6M9 9h2"/></svg>
+        <div class="flex items-center justify-between relative">
+          <span class="w-10 h-10 rounded-full grid place-items-center text-lg" style="background:rgba(255,255,255,.15)"><i class="fa-regular fa-file-lines"></i></span>
+          <span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:rgba(255,255,255,.2)"><i class="fa-solid fa-check"></i> Published</span>
+        </div>
+        <p class="font-display text-2xl font-semibold mt-5">Enhancing LSB Image Steganography Through Password Protection and 
+          Constraint Satisfaction-Based Message Filtering</p>
+        <p class="mt-1 text-sm opacity-85">>Conference Name : 2026 IEEE 2nd International Conference on Quantum 
+          Photonics, Artificial Intelligence & Networking (QPAIN).</p>
+        <a href="https://ieeexplore.ieee.org/document/11546392" class="inline-flex items-center gap-1.5 mt-4 text-sm font-semibold underline decoration-2 underline-offset-2">
+          <i class="fa-brands fa-google-scholar"></i> Read the paper
+        </a>
+      </div>
+
+      <div class="lift relative overflow-hidden rounded-3xl p-6" style="background:var(--sage)">
+        <svg class="absolute -right-5 -bottom-5 opacity-10" width="130" height="130" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6M9 9h2"/></svg>
+        <div class="flex items-center justify-between relative">
+          <span class="w-10 h-10 rounded-full grid place-items-center text-lg" style="background:rgba(255,255,255,.35)"><i class="fa-regular fa-file-lines"></i></span>
+          <span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:rgba(255,255,255,.4)"><i class="fa-solid fa-check"></i> Published</span>
+        </div>
+        <p class="font-display text-2xl font-semibold mt-5">Multi-Model Insider Threat Detection on Temporally Aggregated and 
+          Imbalanced Data: A Comparative Study Using SMOTE and Feature Ablation</p>
+        <p class="mt-1 text-sm opacity-85">Conference Name: 2026 IEEE 2nd International Conference on Quantum 
+          Photonics, Artificial Intelligence & Networking (QPAIN).</p>
+        <a href="https://ieeexplore.ieee.org/document/11546056" class="inline-flex items-center gap-1.5 mt-4 text-sm font-semibold underline decoration-2 underline-offset-2">
+          <i class="fa-brands fa-google-scholar"></i> Read the paper
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-14 flex items-center gap-3">
+      <h3 class="font-display text-xl font-semibold"><i class="fa-solid fa-hourglass-start"></i> Working On</h3>
+      <span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:var(--terracotta);color:#fff">In progress</span>
+    </div>
+    <div class="mt-5 grid sm:grid-cols-2 gap-5">
+
+      <div class="lift relative overflow-hidden rounded-3xl p-6" style="background:var(--terracotta);color:#fff">
+        <svg class="absolute -right-5 -bottom-5 opacity-10" width="130" height="130" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <div class="flex items-center justify-between relative">
+          <span class="w-10 h-10 rounded-full grid place-items-center text-lg" style="background:rgba(255,255,255,.15)"><i class="fa-solid fa-spinner"></i></span>
+          <span class="text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5" style="background:rgba(255,255,255,.2)">
+            <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background:#fff"></span> In progress
+          </span>
+        </div>
+        <p class="font-display text-2xl font-semibold mt-5">UrbaSafe: A Saliency-Guided Closed-Loop Framework for Urban Safety Perception and Generative Renewal</p>
+        <p class="mt-1 text-sm opacity-85">Using MIT's Place Pulse 2.0 dataset, UrbaSafe learns what makes neighborhoods feel safe, 
+          flags problem areas, and simulates targeted fixes for planners before construction begins.</p>
+      </div>
+
+      <div class="lift relative overflow-hidden rounded-3xl p-6" style="background:var(--blush)">
+        <svg class="absolute -right-5 -bottom-5 opacity-10" width="130" height="130" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <div class="flex items-center justify-between relative">
+          <span class="w-10 h-10 rounded-full grid place-items-center text-lg" style="background:rgba(255,255,255,.35)"><i class="fa-solid fa-spinner"></i></span>
+          <span class="text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5" style="background:rgba(255,255,255,.4)">
+            <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background:var(--ink)"></span> In progress
+          </span>
+        </div>
+        <p class="font-display text-2xl font-semibold mt-5">HealGNN: Predicting Disease Risk from Environmental Features and 
+            Simulating Goal-Directed Counterfactual Policy Interventions via Spatio-Temporal Graph Neural Networks</p>
+        <p class="mt-1 text-sm opacity-85">Using the multimodal SatHealth dataset and applying a spatio-temporal GNN to 
+          satellite and climate data to predict municipal chronic 
+          disease rates, paired with an inverse-design framework recommending realistic environmental policy changes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="py-24 max-w-6xl mx-auto px-5">
+  <div class="flex items-end justify-between gap-4">
+    <h2 class="font-display text-4xl font-semibold">Projects</h2>
+    <div class="hidden sm:flex gap-2">
+      <button id="projPrev" aria-label="Previous project" class="w-10 h-10 rounded-full grid place-items-center border-2 lift" style="border-color:var(--olive)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button id="projNext" aria-label="Next project" class="w-10 h-10 rounded-full grid place-items-center text-white lift" style="background:var(--olive)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mt-6 flex flex-wrap gap-2" id="projFilters">
+    <button class="projFilter px-4 py-2 rounded-full text-sm font-semibold border-2 transition-colors" style="border-color:var(--olive);background:var(--terracotta);color:#fff" data-filter="all">All</button>
+    <button class="projFilter px-4 py-2 rounded-full text-sm font-semibold border-2 transition-colors" style="border-color:var(--olive)" data-filter="web">Web</button>
+    <button class="projFilter px-4 py-2 rounded-full text-sm font-semibold border-2 transition-colors" style="border-color:var(--olive)" data-filter="it">IT</button>
+  </div>
+
+  <div id="projTrack" class="mt-6 flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-5" style="scrollbar-width:none">
+
+    <article data-category="web" class="lift card rounded-3xl border border-black/5 p-6 snap-start shrink-0 w-[85%] sm:w-[380px]">
+      <div class="blob2 aspect-video relative overflow-hidden">
+        <a href="images/hide_seek.png" target="_blank" class="w-full h-full">
+        <img src="images/hide_seek.png" alt="Project One screenshot" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+       </a>
+      </div>
+      <h3 class="font-display text-2xl font-semibold mt-5">Hide & Seek: An Image-Based Steganography Website</h3>
+      <p class="mt-2 text-sm" style="opacity:.85">A technique for concealing secret information within an image by imperceptibly 
+            modifying its visual content or manipulating its frequency domain representation.</p>
+      <span class="inline-block mt-4 px-3 py-1 rounded-full text-xs font-bold" style="background:var(--misty)">
+        <i class="fa-solid fa-people-carry-box"></i> Team Project</span>
+        <p class="mt-2 text-sm">
+           <span class="font-bold" style="color:var(--terracotta)">My role:</span>
+           <span style="opacity:.85">Frontend and backend development, shared collaboratively with teammates across both layers.</span>
+        </p>
+      <div class="mt-4 flex flex-wrap gap-2 text-xs font-bold">
+        <span class="px-3 py-1 rounded-full" style="background:var(--sage)">Python</span>
+          <span class="px-3 py-1 rounded-full" style="background:var(--misty)">JavaScript</span>
+          <span class="px-3 py-1 rounded-full" style="background:var(--blush)">Django</span>
+          <span class="px-3 py-1 rounded-full" style="background:var(--terracotta);color:#fff">SQLite</span>
+      </div>
+      <div class="mt-4 flex gap-4 text-sm font-semibold underline decoration-2" style="color:var(--terracotta)">
+          <a href="https://github.com/akhi-moon/Hide-Seek">GitHub</a><a href="https://hideandseek625.pythonanywhere.com/">Live demo</a>
+      </div>
+    </article>
+
+    <article data-category="web" class="lift card rounded-3xl border border-black/5 p-6 snap-start shrink-0 w-[85%] sm:w-[380px]">
+      <div class="blob2 aspect-video relative overflow-hidden">
+      <a href="images/nutri-academia.png" target="_blank" class="w-full h-full">
+        <img src="images/nutri-academia.png" alt="Project Two screenshot" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+        </a>
+      </div>
+      <h3 class="font-display text-2xl font-semibold mt-5">Nutri-Track Academia: A Students' Daily Meal Management System</h3>
+      <p class="mt-2 text-sm" style="opacity:.85">A campus meal management system handling student meal accounts, 
+        menu planning, food purchasing, and billing across food outlets.</p>
+      <span class="inline-block mt-4 px-3 py-1 rounded-full text-xs font-bold" style="background:var(--misty)">
+        <i class="fa-solid fa-users"></i> Team Project</span>
+        <p class="mt-2 text-sm">
+           <span class="font-bold" style="color:var(--terracotta)">My role:</span>
+           <span style="opacity:.85">Frontend and backend development, shared collaboratively with teammates across both layers.</span>
+        </p>
+      <div class="mt-4 flex flex-wrap gap-2 text-xs font-bold">
+        <span class="px-3 py-1 rounded-full" style="background:var(--terracotta);color:#fff">Xampp</span>
+          <span class="px-3 py-1 rounded-full" style="background:var(--misty)">JavaScript</span>
+          <span class="px-3 py-1 rounded-full" style="background:var(--sage)">MySQL</span>
+          <span class="px-3 py-1 rounded-full" style="background:var(--misty)">PHP</span>
+          <span class="chip px-3 py-1.5 rounded-full" style="background:var(--olive);color:#fff">Bootstrap CSS</span>
+      </div>
+      <div class="mt-4 flex gap-4 text-sm font-semibold underline decoration-2" style="color:var(--terracotta)">
+          <a href="https://github.com/akhi-moon/Nutri_Track_Academia">GitHub</a><a href="http://nutritrackacademia.infinityfreeapp.com/">Live Demo</a>
+      </div>
+    </article>
+
+    <article data-category="web" class="lift card rounded-3xl border border-black/5 p-6 snap-start shrink-0 w-[85%] sm:w-[380px]">
+      <div class="blob2 aspect-video relative overflow-hidden">
+        <a href="images/bugswarm.png" target="_blank" class="w-full h-full">
+        <img src="images/bugswarm.png" alt="Project three screenshot" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+       </a>
+      </div>
+      <h3 class="font-display text-2xl font-semibold mt-5">BugSwarm: Learn Why Apps Crash Without Collecting Data</h3>
+      <p class="mt-2 text-sm" style="opacity:.85">BugSwarm uses federated learning to predict crashes before they happen, 
+          learning from patterns across thousands of users without ever seeing their private data.</p>
+      <span class="inline-block mt-4 px-3 py-1 rounded-full text-xs font-bold" style="background:var(--misty)">
+        <i class="fa-solid fa-users"></i> Team Project</span>
+        <p class="mt-2 text-sm">
+          <span class="font-bold" style="color:var(--terracotta)">My role:</span>
+          <span style="opacity:.85">Frontend development — UI, layout, and sign-login logic — while teammates handled the backend.</span>
+        </p>
+      <div class="mt-4 flex flex-wrap gap-2 text-xs font-bold">
+          <span class="px-3 py-1 rounded-full" style="background:var(--olive); color:#fff">In Development Stage</span>
+      </div>
+      <div class="mt-4 flex gap-4 text-sm font-semibold underline decoration-2" style="color:var(--terracotta)">
+          <a href="https://github.com/FYasmin12/BugSwarm">GitHub</a>
+      </div>
+    </article>
+
+    <article data-category="web" class="lift card rounded-3xl border border-black/5 p-6 snap-start shrink-0 w-[85%] sm:w-[380px]">
+      <div class="blob2 aspect-video relative overflow-hidden">
+        <a href="images/urban_surgeon.png" target="_blank" class="w-full h-full">
+        <img src="images/urban_surgeon.png" alt="Project three screenshot" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+       </a>
+      </div>
+      <h3 class="font-display text-2xl font-semibold mt-5">Urban Surgeon: Real-Time Counterfactual Policy Simulation</h3>
+      <p class="mt-2 text-sm" style="opacity:.85">An interactive decision-support platform using a Spatio-Temporal GNN to run 
+        real-time counterfactual optimization on urban features, prescribing interventions for disease reduction.</p>
+          <span class="inline-block mt-4 px-3 py-1 rounded-full text-xs font-bold text-white" style="background:var(--olive)">
+            <i class="fa-solid fa-graduation-cap"></i> Thesis Project: Solo Build</span>
+          <p class="mt-2 text-sm">
+            <span class="font-bold" style="color:var(--terracotta)">My role:</span>
+            <span style="opacity:.85">Built the entire web tool solo — full frontend and backend — as the technical implementation for our team's thesis research.</span>
+          </p>
+      <div class="mt-4 flex flex-wrap gap-2 text-xs font-bold">
+         <span class="px-3 py-1 rounded-full" style="background:var(--sage)">Python</span>
+         <span class="px-3 py-1 rounded-full" style="background:var(--misty)">JavaScript</span>
+         <span class="px-3 py-1 rounded-full" style="background:var(--blush)">Django</span>
+      </div>
+    </article>
+  
+    <article data-category="it" class="lift card rounded-3xl border border-black/5 p-6 snap-start shrink-0 w-[85%] sm:w-[380px]">
+      <div class="blob2 aspect-video relative overflow-hidden">
+        <a href="images/rain_sensor.jpg" target="_blank" class="w-full h-full">
+            <img src="images/rain_sensor.jpg" alt="Project One screenshot" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+        </a>
+      </div>
+      <h3 class="font-display text-2xl font-semibold mt-5">Rain Detector System-with the help of LED and Buzzer.</h3>
+        <p class="mt-2 text-sm" style="opacity:.85">A smart-home solution using an Arduino Uno to detect rainfall and 
+          mitigate property risk through automated safeguarding and resource management.</p>
+        <span class="inline-block mt-4 px-3 py-1 rounded-full text-xs font-bold" style="background:var(--misty)">
+          <i class="fa-solid fa-people-line"></i> Team Project</span>
+          <p class="mt-2 text-sm">
+            <span class="font-bold" style="color:var(--olive)"><b>My role:</b></span>
+            <span style="opacity:.85">Contributed on circuit designing, wiring, buildig full physical: hand-crafted the house model.</span>
+          </p>
+      <div class="mt-4 flex flex-wrap gap-2 text-xs font-bold">
+        <span class="px-3 py-1 rounded-full" style="background:var(--blush)">Networking</span>
+      </div>
+      <div class="mt-4 flex gap-4 text-sm font-semibold underline decoration-2" style="color:var(--terracotta)">
+       <a href="images/rain_sensor_demo.mp4" target="_blank">Video Presentation</a>
+      </div>
+    </article>
+
+    <article data-category="it" class="lift card rounded-3xl border border-black/5 p-6 snap-start shrink-0 w-[85%] sm:w-[380px]">
+      <div class="blob2 aspect-video relative overflow-hidden" data-slider>
+        <div class="flex h-full transition-transform duration-500 ease-out" data-slider-track>
+          <a href="images/circuit_image.png" target="_blank" class="w-full h-full shrink-0">
+            <img src="images/circuit_image.png" alt="Automated Traffic Systemizer — circuit diagram" class="w-full h-full object-cover">
+          </a>
+          
+          <a href="images/Energy saving light system.png" target="_blank" class="w-full h-full shrink-0">
+            <img src="images/Energy saving light system.png" alt="Automated Traffic Systemizer — second view" class="w-full h-full object-cover">
           </a>
         </div>
-        <div class="p-5 flex flex-col flex-1">
-          <h3 class="font-serif text-lg font-semibold">Hide & Seek: An Image-Based Steganography Website</h3>
-          <p class="text-sm text-ink/70 mt-2 flex-1">
-            A technique for concealing secret information within an image by imperceptibly 
-            modifying its visual content or manipulating its frequency domain representation.
+        <button type="button" class="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full grid place-items-center text-white bg-black/30 hover:bg-black/50" data-slider-prev aria-label="Previous image">‹</button>
+        <button type="button" class="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full grid place-items-center text-white bg-black/30 hover:bg-black/50" data-slider-next aria-label="Next image">›</button>
+        <div class="absolute bottom-2 left-1/2 -translate-x-1/2 z-10 flex gap-1.5" data-slider-dots></div>
+      </div>
+      <h3 class="font-display text-2xl font-semibold mt-5">Automated Traffic Systemizer</h3>
+        <p class="mt-2 text-sm" style="opacity:.85">Integrates traditional traffic lights with automated barriers, 
+          synchronized countdown timers, and vehicle-detecting street lights to enhance road safety and cut energy use.</p>
+        <span class="inline-block mt-4 px-3 py-1 rounded-full text-xs font-bold" style="background:var(--misty)">
+          <i class="fa-solid fa-people-line"></i> Team Project</span>
+          <p class="mt-2 text-sm">
+            <span class="font-bold" style="color:var(--olive)"><b>My role:</b></span>
+            <span style="opacity:.85">Contributed on designing, wiring, building, and programming a scale traffic intersection 
+              with custom-engineered acoustic buzzer tones</span>
           </p>
-          <div class="mt-4 flex gap-4 text-sm">
-            <a href="https://github.com/akhi-moon/Hide-Seek/tree/main/Hide%26Seek_SectionA" class="text-forest
-              relative hover:text-forest transition-colors after:content-[''] after:absolute 
-              after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-forest 
-              after:transition-all hover:after:w-full">
-            <i class="fa-brands fa-square-github"></i> GitHub</a>
-            <a href="https://hideandseek625.pythonanywhere.com/" class="text-forest
-              relative hover:text-forest transition-colors after:content-[''] after:absolute 
-              after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-forest 
-              after:transition-all hover:after:w-full">See project <i class="fa-solid fa-link"></i></a>
-          </div>
-        </div>
+      <div class="mt-4 flex flex-wrap gap-2 text-xs font-bold">
+        <span class="px-3 py-1 rounded-full" style="background:var(--blush)">Networking</span>
       </div>
-
-      <!-- Project card 2 -->
-      <div class="border border-line rounded-md overflow-hidden flex flex-col">
-        <div class="h-50 bg-line flex items-center justify-center text-ink/40 text-sm">
-          <a href="images/nutri-academia.png" target="_blank">
-          <img src="images/nutri-academia.png" alt="Project One screenshot" class="w-full h-full object-cover">
-          </a>        
-        </div>
-        <div class="p-5 flex flex-col flex-1">
-          <h3 class="font-serif text-lg font-semibold">Nutri-Track Academia: A Students' Daily Meal Management System</h3>
-          <p class="text-sm text-ink/70 mt-2 flex-1">
-            A meal booking and billing system that manages student meal accounts for purchases of meals at food outlets on campuses. 
-            It's a planned series of events which is mainly concerned with menu-planning, food purchasing, managing the bills.
-          </p>
-          <div class="mt-4 flex gap-4 text-sm">
-            <a href="https://github.com/akhi-moon/Nutri_Track_Academia" class="text-forest
-              relative hover:text-forest transition-colors after:content-[''] after:absolute 
-              after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-forest 
-              after:transition-all hover:after:w-full">
-            <i class="fa-brands fa-square-github"></i> GitHub</a>
-            <a href="http://nutritrackacademia.infinityfreeapp.com/" class="text-forest
-              relative hover:text-forest transition-colors after:content-[''] after:absolute 
-              after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-forest 
-              after:transition-all hover:after:w-full">See project <i class="fa-solid fa-link"></i></a>
-          </div>
-        </div>
+      <div class="mt-4 flex gap-4 text-sm font-semibold underline decoration-2" style="color:var(--terracotta)">
+       <a href="images/traffic_light.mp4" target="_blank">Video Presentation of Traffic Light Simulation</a>
+       <a href="images/Energy Saving Street Lights.mp4" target="_blank">Video Presentation of Energy Saving Street Lights Simulation</a>
       </div>
+    </article>
 
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="px-5 py-24 max-w-6xl mx-auto">
+  <h2 class="font-display text-4xl font-semibold">Get in touch</h2>
+  <p class="mt-3 text-lg" style="opacity:.75">Looking for internship or new-grad roles — always happy to talk code, teaching, or projects.</p>
+
+  <div class="mt-12 grid md:grid-cols-2 gap-10">
+    <div>
+      <h3 class="font-display text-xl font-semibold mb-5">Contact info</h3>
+      <ul class="space-y-4 text-sm">
+        <li class="flex items-center gap-3">
+          <span class="w-9 h-9 shrink-0 grid place-items-center rounded-full" style="background:var(--sage)"><i class="fa-solid fa-at"></i> </span>
+          <span><span class="font-semibold">Email</span> — <a href="mailto:akhimoon6445@gmail.com" class="hover:underline" style="opacity:.8">akhimoon6445@gmail.com</a></span>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="w-9 h-9 shrink-0 grid place-items-center rounded-full" style="background:var(--misty)"><i class="fa-solid fa-phone"></i></span>
+          <span><span class="font-semibold">Phone</span> — <span style="opacity:.8">+880 163 610 1228</span></span>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="w-9 h-9 shrink-0 grid place-items-center rounded-full" style="background:var(--blush)"><i class="fa-brands fa-square-github"></i></span>
+          <span><span class="font-semibold">GitHub</span> — <a href="https://github.com/akhi-moon" class="hover:underline" style="opacity:.8">github.com/akhi-moon</a></span>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="w-9 h-9 shrink-0 grid place-items-center rounded-full" style="background:var(--sage)"><i class="fa-brands fa-linkedin"></i> </span>
+          <span><span class="font-semibold">LinkedIn</span> — <a href="https://linkedin.com/in/akhi-moon-jahan" class="hover:underline" style="opacity:.8">linkedin.com/in/akhi-moon-jahan</a></span>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="w-9 h-9 shrink-0 grid place-items-center rounded-full" style="background:var(--misty)"><i class="fa-brands fa-researchgate"></i></span>
+          <span><span class="font-semibold">ResearchGate</span> — <a href="https://www.researchgate.net/profile/Akhi-Jahan" class="hover:underline" style="opacity:.8">researchgate.net/Akhi-Jahan</a></span>
+        </li>
+      </ul>
     </div>
-  </section>
 
-  <!-- ============================================================
-       5. CONTACT
-       ONE outer card titled "Get in touch" containing TWO equal-length
-       inner columns: left = your info, right = a message form.
-       "items-stretch" on the grid is what forces both columns to match height.
-  ============================================================ -->
-  <section id="contact" class="max-w-4xl mx-auto px-6 py-10">
-    <div class="border border-line rounded-md overflow-hidden">
-      <h2 class="font-serif text-2xl font-semibold px-6 pt-6">Get in touch</h2>
-      <p class="px-8 text-ink/70 mt-2">
-        Yeah Whatever.
-      </p>
-
-      <div class="grid md:grid-cols-2 items-stretch mt-6">
-
-        <!-- LEFT: your info -->
-        <div class="p-8 border-t md:border-t-0 md:border-r border-line">
-          <h3 class="font-medium mb-4">Contact info</h3>
-          <ul class="space-y-3 text-sm text-ink/80">
-            <li><span class="text-ink/50"><i class="fa-solid fa-at"></i> Email — </span>akhimoon6445@gmail.com</li>
-            <li><span class="text-ink/50"><i class="fa-solid fa-phone"></i> Phone — </span>+8801636101228</li>
-            <li><span class="text-ink/50"><i class="fa-brands fa-square-github"></i> GitHub — </span><a href="https://github.com/akhi-moon" class="text-forest hover:underline">akhi-moon</a></li>
-            <li><span class="text-ink/50"><i class="fa-brands fa-linkedin"></i> LinkedIn — </span><a href="https://linkedin.com/in/akhi-moon-jahan" class="text-forest hover:underline">akhi-moon-jahan</a></li>
-            <li><span class="text-ink/50"><i class="fa-brands fa-researchgate"></i> ResearchGate — </span><a href=" https://www.researchgate.net/profile/Akhi-Jahan" class="text-forest hover:underline">Akhi-Jahan</a></li>
-          </ul>
+    <div class="card rounded-3xl border border-black/10 p-7">
+      <h3 class="font-display text-xl font-semibold mb-5">Send a message</h3>
+      <form id="contactForm" class="space-y-4">
+        <div>
+          <label for="cf-name" class="block text-sm font-semibold mb-1.5">Name</label>
+          <input id="cf-name" name="user_name" type="text" required class="w-full rounded-xl border border-black/15 bg-transparent px-3.5 py-2.5 outline-none focus:border-[var(--terracotta)]">
         </div>
-
-        <!-- RIGHT: contact form.
-             No JavaScript yet, so this form doesn't actually send anything —
-             that comes once your class covers JS / a backend. -->
-        <div class="p-8 border-t border-line">
-          <h3 class="font-medium mb-4">Send a message</h3>
-          <form class="space-y-4">
-            <div>
-              <label for="name" class="block text-sm text-ink/60 mb-1">Name</label>
-              <input id="name" type="text"
-                     class="w-full border border-line rounded-md px-3 py-2 bg-paper
-                            focus:outline-none focus:ring-2 focus:ring-forest" />
-            </div>
-            <div>
-              <label for="email" class="block text-sm text-ink/60 mb-1">Email</label>
-              <input id="email" type="email"
-                     class="w-full border border-line rounded-md px-3 py-2 bg-paper
-                            focus:outline-none focus:ring-2 focus:ring-forest" />
-            </div>
-            <div>
-              <label for="message" class="block text-sm text-ink/60 mb-1">Message</label>
-              <textarea id="message" rows="3"
-                        class="w-full border border-line rounded-md px-3 py-2 bg-paper
-                               focus:outline-none focus:ring-2 focus:ring-forest"></textarea>
-            </div>
-            <button type="submit"
-                    class="px-5 py-2.5 bg-forest text-paper rounded-md hover:bg-forestlight transition-colors">
-              Send message
-            </button>
-          </form>
+        <div>
+          <label for="cf-email" class="block text-sm font-semibold mb-1.5">Email</label>
+          <input id="cf-email" type="email" name="user_email" required class="w-full rounded-xl border border-black/15 bg-transparent px-3.5 py-2.5 outline-none focus:border-[var(--terracotta)]">
         </div>
-
-      </div>
+        <div>
+          <label for="cf-message" class="block text-sm font-semibold mb-1.5">Message</label>
+          <textarea id="cf-message" name="message" rows="4" required class="w-full rounded-xl border border-black/15 bg-transparent px-3.5 py-2.5 outline-none focus:border-[var(--terracotta)] resize-y"></textarea>
+        </div>
+        <button type="submit" class="px-6 py-3 rounded-full text-white font-semibold lift" style="background:var(--olive)">Send message</button>
+        <p id="cf-status" class="text-sm pt-1" style="opacity:.75"></p>
+      </form>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-  <footer class="max-w-5xl mx-auto px-6 py-10 text-sm text-ink/50 text-center">
-    © 2026 Akhi Moon Jahan. Built with HTML & Tailwind CSS.
+<footer class="max-w-5xl mx-auto px-6 py-10 text-sm text-ink/50 text-center">
+    © <span id="year"></span> <i class="fa-solid fa-spinner"></i> Built by <a href="#">Akhi Moon Jahan</a>.
   </footer>
 
+<button id="toTop" aria-label="Back to top" class="hidden fixed bottom-6 right-6 w-11 h-11 rounded-full grid place-items-center shadow-lg lift" style="background:var(--terracotta)">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+  document.getElementById("year").innerText = new Date().getFullYear();
+
+  const aboutTabs = Array.from(document.querySelectorAll('.aboutTab'));
+  const fillSkillBars = () => {
+    document.querySelectorAll('#panel-skills .skillFill').forEach(bar => {
+      bar.style.width = bar.dataset.width + '%';
+    });
+  };
+  const activateTab = (name) => {
+    aboutTabs.forEach(t => {
+      const active = t.dataset.tab === name;
+      t.style.color = active ? 'var(--terracotta)' : '';
+      t.style.opacity = active ? '1' : '.55';
+      t.querySelector('.tabUnderline').style.opacity = active ? '1' : '0';
+    });
+    document.querySelectorAll('.aboutPanel').forEach(p => p.classList.add('hidden'));
+    document.getElementById('panel-' + name)?.classList.remove('hidden');
+    if (name === 'skills') requestAnimationFrame(fillSkillBars);
+  };
+  aboutTabs.forEach(t => t.addEventListener('click', () => activateTab(t.dataset.tab)));
+  document.querySelectorAll('[data-goto-tab]').forEach(link => {
+    link.addEventListener('click', () => setTimeout(() => activateTab(link.dataset.gotoTab), 350));
+  });
+  setTimeout(fillSkillBars, 400);
+
+  const menuBtn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
+  menuBtn.addEventListener('click', () => {
+    const open = menu.classList.toggle('hidden');
+    menuBtn.setAttribute('aria-expanded', String(!open));
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+
+  const contactForm = document.getElementById('contactForm');
+  contactForm?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const status = document.getElementById('cf-status');
+  const btn = contactForm.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  status.textContent = "Sending…";
+
+  emailjs.sendForm('service_7kpocba', 'template_dfxrcst', contactForm)
+    .then(() => {
+      status.textContent = "Message sent — thanks! I'll get back to you soon.";
+      contactForm.reset();
+      btn.disabled = false;
+    })
+    .catch((err) => {
+      console.error(err);
+      status.textContent = "Something went wrong — please email me directly instead.";
+      btn.disabled = false;
+    });
+});
+
+  const projFilterBtns = Array.from(document.querySelectorAll('.projFilter'));
+  projFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      projFilterBtns.forEach(b => { b.style.background = 'transparent'; b.style.color = 'inherit'; });
+      btn.style.background = 'var(--terracotta)'; btn.style.color = '#fff';
+      const cat = btn.dataset.filter;
+      document.querySelectorAll('#projTrack article').forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.category === cat) ? '' : 'none';
+      });
+    });
+  });
+
+  const projTrack = document.getElementById('projTrack');
+  const scrollByCard = (dir) => {
+    const card = projTrack?.querySelector('article');
+    const amount = card ? card.getBoundingClientRect().width + 24 : 300;
+    projTrack.scrollBy({ left: dir * amount, behavior: 'smooth' });
+  };
+  document.getElementById('projPrev')?.addEventListener('click', () => scrollByCard(-1));
+  document.getElementById('projNext')?.addEventListener('click', () => scrollByCard(1));
+
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    toTop.classList.toggle('hidden', window.scrollY < 500);
+  }, { passive:true });
+  toTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+
+  document.querySelectorAll('[data-slider]').forEach(slider => {
+  const track = slider.querySelector('[data-slider-track]');
+  const slides = Array.from(track.children);
+  const dotsWrap = slider.querySelector('[data-slider-dots]');
+  let index = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('aria-label', `Go to image ${i + 1}`);
+    dot.className = 'w-1.5 h-1.5 rounded-full';
+    dot.style.background = 'rgba(255,255,255,.5)';
+    dot.addEventListener('click', () => go(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function go(i) {
+    index = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((d, di) => d.style.background = di === index ? '#fff' : 'rgba(255,255,255,.5)');
+  }
+  slider.querySelector('[data-slider-prev]')?.addEventListener('click', () => go(index - 1));
+  slider.querySelector('[data-slider-next]')?.addEventListener('click', () => go(index + 1));
+  go(0);
+});
+</script>
 </body>
 </html>
